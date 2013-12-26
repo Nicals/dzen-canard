@@ -1,0 +1,64 @@
+dzen_canard is a simple bash API to easily drive dzen2 scripts.
+
+Didn't have time to write a good documentation, so use the source Luke. You
+can also have a look to the example file.
+
+usage
+-----
+
+Dzen Canard sets up a bunch of functions usefull to build some dzen2 command
+line option and handle the main loop.
+
+The Dzen Canard core scripts automatically sources all needed files, and then
+call a user define bash script $HOME/.config/dzen-canard/canard.sh that will
+used this function to call the main loop function 'run_loop' with appropriate
+arguments.
+
+
+configuration
+-------------
+
+Configuration files are loaded from /usr/local/etc/dzen-canard, then from
+$HOME/.config/dzen-canard/config.sh (configuration can be overidden from
+this last file).
+
+
+library
+-------
+
+Library are bash scripts that contains functions used to display informaiton
+on dzen2. A Dzen Canard library file must start with 'dzen_' in order to be
+sourced by the core Dzen Canard script.
+
+Some Dzen Canard Libraries are already written and located in 
+/usr/local/lib/dzen_canard after installation. Custom function can be written
+and put in $HOME/.config/dzen-canard/libs.
+
+
+output formatters
+-----------------
+
+Output can be formatted used the run_loop --formatter argument. See the
+provided example to see how it work.
+
+
+icons
+-----
+
+Some icons are provided from the dzen2 package. They are located in
+/usr/local/share/dzen_canard/icons.
+Some user defined icons can be added or override existing ones in
+$HOME/.config/dzen-canard/icons.
+
+A bunch of icons are defined in the default configuration files.
+
+
+installation
+------------
+
+Although Dzen Canard can run without being installed, you can install it by
+running the setup.sh script. Some path in the script will be changed by a
+bunch of 'sed' commands before being moved in appropriate directories.
+
+Run the setup.sh script with 'uninstall' argument to remove Dzen Canard from
+your system.
